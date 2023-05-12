@@ -8,11 +8,11 @@
     <meta name="description"
         content="Gratis el Calendario eCommerce para Chile, incluye las mejores fechas para vender online">
     <script>
-            fetch('./calendario_ecommerce.json')
+        fetch('./calendario_ecommerce.json')
             .then((response) => response.json())
             .then((data) => createList(data));
 
-            function createList(data) {
+        function createList(data) {
             const mainUL = document.createElement('ol');
             for (let i = 0; i < data.events.length; i++) {
                 const monthLI = document.createElement('li');
@@ -22,15 +22,24 @@
                 dateLI.innerHTML = data.events[i].date;
                 eventLI.innerHTML = data.events[i].event;
 
-                const eventsUL = document.createElement('ul');                
+                const eventsUL = document.createElement('ul');
                 monthLI.appendChild(eventsUL);
                 mainUL.appendChild(monthLI);
-                mainUL.appendChild(dateLI);
-                mainUL.appendChild(eventLI);
+                monthLI.appendChild(dateLI);
+                monthLI.appendChild(eventLI);
             }
             document.body.appendChild(mainUL);
         }
     </script>
+    <style>
+        li {
+            list-style-type: circle;
+        }
+
+        li li {
+            list-style-type: square;
+        }
+    </style>
 </head>
 
 <body>

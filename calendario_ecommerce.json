@@ -1,25 +1,25 @@
 {
     "events": [
         {
-            "mes": "enero",
+            "mes": "Enero",
             "date": "7",
             "day": "07",
             "event": "Rebajas de verano"
         },
         {
-            "mes": "febrero",
+            "mes": "Febrero",
             "date": "12",
             "day": "12",
             "event": "Súper Bowl"
         },
         {
-            "mes": "marzo",
+            "mes": "Marzo",
             "date": "01",
             "day": "01",
             "event": "Regreso a clases"
         },
         {
-            "mes": "marzo",
+            "mes": "Abril",
             "date": "29",
             "day": "29",
             "event": "RegBlackFriday"

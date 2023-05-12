@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Calendario eCommerce para Chile 🇨🇱 | Ecoinput.com</title>
+    <meta name="description"
+        content="Gratis el Calendario eCommerce para Chile, incluye las mejores fechas para vender online">
+    <script>
+            fetch('./calendario_ecommerce.json')
+            .then((response) => response.json())
+            .then((data) => createList(data));
+
+            function createList(data) {
+            const mainUL = document.createElement('ol');
+            for (let i = 0; i < data.events.length; i++) {
+                const monthLI = document.createElement('li');
+                const dateLI = document.createElement('li');
+                const eventLI = document.createElement('li');
+                monthLI.innerHTML = data.events[i].mes + ':';
+                dateLI.innerHTML = data.events[i].date;
+                eventLI.innerHTML = data.events[i].event;
+
+                const eventsUL = document.createElement('ul');                
+                monthLI.appendChild(eventsUL);
+                mainUL.appendChild(monthLI);
+                mainUL.appendChild(dateLI);
+                mainUL.appendChild(eventLI);
+            }
+            document.body.appendChild(mainUL);
+        }
+    </script>
+</head>
+
+<body>
+    <form enctype='application/json'>
+        <table>
+            <thead>
+                <th>
+                    <h1>
+                        Mantenedor Eventos eCommerce 🇨🇱
+                    </h1>
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Mes del evento
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="mes" placeholder="Febrero" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fecha del evento
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date" name="date" placeholder="7 de febrero" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Evento
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="event" placeholder="Día de la Madre en Chile"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="guardar_evento" value="Guardar Evento" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <div>
+        <p>
+        <h1 id="title_all_events">
+            Lista de Eventos eCommerce en Chile 🇨🇱
+        </h1>
+        </p>
+        <p>
+        <div class="mainUL">
+
+        </div>
+        </p>
+    </div>
+</body>
+
+</html>
